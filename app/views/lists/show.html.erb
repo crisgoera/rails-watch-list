@@ -1,0 +1,5 @@
+<h3><%= @list.name %></h3>
+
+
+
+<%= link_to 'Delete this list', list_path(), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
