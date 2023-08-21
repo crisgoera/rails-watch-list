@@ -1,9 +1,14 @@
+<h3><%= @list.name %></h3>
+
 <ul>
-  <% @index.each do |bookmark| %>
+  <% @bookmarks.each do |bookmark| %>
+    <% if bookmark.list_id == @list.id %>
+      <li><%= bookmark.comment %> <br></li> <li>Bookmark ID: <%= bookmark.id %></li>
+      <li>Movie ID:<%= bookmark.movie_id %> <br></li><%= link_to 'Delete', bookmark_path(bookmark.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 
-    <li><%= bookmark.comment %> <br></li>
-    <li><%= bookmark.movie_id %> <br></li>
+      <br>
+      <% end %>
   <% end %>
-  </ul>
+</ul>
 
-<%= link_to 'Create a new bookmark', new_bookmark_path() %>
+<%= link_to 'Create a new bookmark', new_bookmark_path() %> <br>

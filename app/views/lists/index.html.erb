@@ -1,10 +1,22 @@
-<h3>All lists</h3>
+<nav>
+  <div class="container-fluid">
+    <div id= "navbar" class="d-flex justify-center">
+      <%= link_to 'New list', new_list_path %>
+    </div>
+  </div>
+</nav>
 
-<ul>
-  <% @lists.each do |list|%>
-    <h4><%= link_to list.name, list_path(list.id) %></h4>
-  <% end %>
-</ul>
 
+<div class="container">
+  <h3>All lists</h3>
 
-<%= link_to 'Create a new list', new_list_path %>
+  <div class="d-flex">
+    <ul>
+      <% @lists.each do |list|%>
+        <h4><%= link_to list.name, list_path(list.id) %></h4>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="btn-success"></div>
+</div>

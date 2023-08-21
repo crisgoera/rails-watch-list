@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   # post 'lists/:id', to: 'lists#create'
 
   resources :lists, except: [:edit, :update] do
-    member do
-      resources :bookmarks, except: [:edit, :update]
-    end
+    resources :bookmarks, except: [:edit, :update, :show]
   end
+
+  resources :bookmarks, only: :destroy
 end
